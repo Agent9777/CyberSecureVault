@@ -33,7 +33,7 @@ function CreateAccount() {
     try {
       // Sending POST request to register user
       await axios.post(
-        "https://cyber-secure-vault-ko89.vercel.app//api/auth/register",
+        "https://cyber-secure-vault-ko89.vercel.app/api/auth/register",
         {
           email,
           password: setPassword,

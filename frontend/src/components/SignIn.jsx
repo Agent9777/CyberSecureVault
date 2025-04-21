@@ -18,7 +18,7 @@ function SignIn() {
 
     try {
       const res = await axios.post(
-        "https://cyber-secure-vault-ko89.vercel.app//api/auth/signin",
+        "https://cyber-secure-vault-ko89.vercel.app/api/auth/signin",
         {
           email,
           password,
