@@ -23,7 +23,7 @@ function Show1() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/get-monthly-finance",
+        "https://cyber-secure-vault-ko89.vercel.app//api/auth/get-monthly-finance",
         {
           user_id,
           month,

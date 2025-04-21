@@ -16,7 +16,7 @@ function Show() {
     const fetchPasswords = async () => {
       try {
         const res = await axios.post(
-          "http://localhost:5000/api/auth/get-passwords",
+          "https://cyber-secure-vault-ko89.vercel.app//api/auth/get-passwords",
           {
             user_id,
           }
