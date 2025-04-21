@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../app.css";
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 function CreateAccount() {
   const [email, setEmail] = useState("");
   const [setPassword, setSetPassword] = useState("");
@@ -32,13 +34,10 @@ function CreateAccount() {
 
     try {
       // Sending POST request to register user
-      await axios.post(
-        "https://cyber-secure-vault-ko89.vercel.app/api/auth/register",
-        {
-          email,
-          password: setPassword,
-        }
-      );
+      await axios.post(`${apiUrl}/api/auth/register`, {
+        email,
+        password: setPassword,
+      });
 
       console.log("Account created, navigating to sign in page...");
 

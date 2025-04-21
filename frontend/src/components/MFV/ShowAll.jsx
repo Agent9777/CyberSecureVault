@@ -3,6 +3,7 @@ import axios from "axios";
 import "../SignIn.css";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 function ShowAll() {
   const [allData, setAllData] = useState([]);
@@ -22,7 +23,7 @@ function ShowAll() {
     setLoading(true);
     try {
       const res = await axios.post(
-        "https://cyber-secure-vault-ko89.vercel.app/api/auth/get-all-monthly-finance",
+        `${apiUrl}/api/auth/get-all-monthly-finance`,
         {
           user_id,
         }

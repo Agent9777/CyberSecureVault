@@ -3,6 +3,7 @@ import axios from "axios";
 import "../SignIn.css";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 function Show1() {
   const [month, setMonth] = useState("");
@@ -22,13 +23,10 @@ function Show1() {
     setError("");
 
     try {
-      const res = await axios.post(
-        "https://cyber-secure-vault-ko89.vercel.app/api/auth/get-monthly-finance",
-        {
-          user_id,
-          month,
-        }
-      );
+      const res = await axios.post(`${apiUrl}/api/auth/get-monthly-finance`, {
+        user_id,
+        month,
+      });
       if (res.data.success && res.data.data) {
         console.log("success");
         console.log(res.data.data[0]);

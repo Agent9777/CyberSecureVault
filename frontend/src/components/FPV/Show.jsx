@@ -3,6 +3,7 @@ import axios from "axios";
 import "../SignIn.css";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 function Show() {
   const [passwords, setPasswords] = useState([]);
@@ -15,12 +16,9 @@ function Show() {
   useEffect(() => {
     const fetchPasswords = async () => {
       try {
-        const res = await axios.post(
-          "https://cyber-secure-vault-ko89.vercel.app/api/auth/get-passwords",
-          {
-            user_id,
-          }
-        );
+        const res = await axios.post(`${apiUrl}/api/auth/get-passwords`, {
+          user_id,
+        });
         if (res.data.success) {
           setPasswords(res.data.data);
           setLastModified(res.data.lastModified);

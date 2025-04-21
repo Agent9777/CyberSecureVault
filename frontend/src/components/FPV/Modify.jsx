@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 function Modify() {
   const [type, setType] = useState("");
   const [pin, setPin] = useState("");
@@ -24,15 +26,12 @@ function Modify() {
     }
 
     try {
-      const res = await axios.post(
-        "https://cyber-secure-vault-ko89.vercel.app/api/auth/modify-password",
-        {
-          type,
-          pin,
-          user_id,
-          identification,
-        }
-      );
+      const res = await axios.post(`${apiUrl}/api/auth/modify-password`, {
+        type,
+        pin,
+        user_id,
+        identification,
+      });
       console.log(res.message);
 
       if (res.data.success) {

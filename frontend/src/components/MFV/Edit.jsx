@@ -3,6 +3,7 @@ import axios from "axios";
 import "../SignIn.css";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 function Edit() {
   const [month, setMonth] = useState("");
@@ -18,17 +19,14 @@ function Edit() {
     const savings = income - expenditure - investment;
 
     try {
-      const res = await axios.post(
-        "https://cyber-secure-vault-ko89.vercel.app//api/auth/save-monthly-finance",
-        {
-          user_id,
-          month,
-          income,
-          expenditure,
-          investment,
-          savings,
-        }
-      );
+      const res = await axios.post(`${apiUrl}/api/auth/save-monthly-finance`, {
+        user_id,
+        month,
+        income,
+        expenditure,
+        investment,
+        savings,
+      });
 
       if (res.data.success) {
         setMessage("Finance details saved successfully.");

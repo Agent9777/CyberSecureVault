@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./SignIn.css";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 function SignIn() {
   const [email, setEmail] = useState("");
@@ -17,13 +18,10 @@ function SignIn() {
     // Email pattern check for Gmail or .ac.in domain
 
     try {
-      const res = await axios.post(
-        "https://cyber-secure-vault-ko89.vercel.app/api/auth/signin",
-        {
-          email,
-          password,
-        }
-      );
+      const res = await axios.post(`${apiUrl}/api/auth/signin`, {
+        email,
+        password,
+      });
 
       if (res.data.success) {
         navigate("/vaults", { state: { user_id: res.data.user_id } }); // Redirect to the vaults page on successful sign-in
