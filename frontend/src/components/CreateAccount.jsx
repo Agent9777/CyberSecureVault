@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../App.css";
-
+import "../app.css";
 
 function CreateAccount() {
   const [email, setEmail] = useState("");
@@ -25,7 +24,9 @@ function CreateAccount() {
     // Email pattern check for Gmail or .ac.in domain
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailPattern.test(email)) {
-      setError("Invalid email formaOops! That doesn't look like a valid email address. Please try again");
+      setError(
+        "Invalid email formaOops! That doesn't look like a valid email address. Please try again"
+      );
       return;
     }
 
@@ -39,7 +40,7 @@ function CreateAccount() {
       console.log("Account created, navigating to sign in page...");
 
       // Navigate to Sign In page
-      navigate("/sign-in");  // Ensure this route is correct and exists in your router
+      navigate("/sign-in"); // Ensure this route is correct and exists in your router
     } catch (err) {
       setError("Failed to create account.");
       console.error(err);
@@ -48,60 +49,65 @@ function CreateAccount() {
 
   return (
     <div className="create-account-wrapper">
-    <div className="create-account-container">
-      <h2 className="create-account-title">Create Account</h2>
-      <form onSubmit={handleSubmit} className="create-account-form">
-        <input
-          type="email"
-          placeholder="Email address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="input-field"
-          required
-        /><br />
-
-        {/* Password Input with Show/Hide Toggle */}
-        <div className="password-container">
+      <div className="create-account-container">
+        <h2 className="create-account-title">Create Account</h2>
+        <form onSubmit={handleSubmit} className="create-account-form">
           <input
-            type={showPassword ? "text" : "password"} // Toggle password visibility
-            placeholder="Set Password"
-            value={setPassword}
-            onChange={(e) => setSetPassword(e.target.value)}
+            type="email"
+            placeholder="Email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="input-field"
             required
           />
-          <button
-            type="button"
-            onClick={() => setShowPassword(!showPassword)}
-            className="toggle-password-btn"
-          >
-            {showPassword ? "Hide" : "Show"}
-          </button>
-        </div><br />
+          <br />
 
-        {/* Confirm Password Input with Show/Hide Toggle */}
-        <div className="password-container">
-          <input
-            type={showConfirmPassword ? "text" : "password"} // Toggle confirm password visibility
-            placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            className="input-field"
-            required
-          />
-          <button
-            type="button"
-            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-            className="toggle-password-btn"
-          >
-            {showConfirmPassword ? "Hide" : "Show"}
-          </button>
-        </div><br />
+          {/* Password Input with Show/Hide Toggle */}
+          <div className="password-container">
+            <input
+              type={showPassword ? "text" : "password"} // Toggle password visibility
+              placeholder="Set Password"
+              value={setPassword}
+              onChange={(e) => setSetPassword(e.target.value)}
+              className="input-field"
+              required
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="toggle-password-btn"
+            >
+              {showPassword ? "Hide" : "Show"}
+            </button>
+          </div>
+          <br />
 
-        {error && <p className="error-message">{error}</p>}
-        <button type="submit" className="submit-btn">Create Account</button>
-      </form>
-    </div>
+          {/* Confirm Password Input with Show/Hide Toggle */}
+          <div className="password-container">
+            <input
+              type={showConfirmPassword ? "text" : "password"} // Toggle confirm password visibility
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className="input-field"
+              required
+            />
+            <button
+              type="button"
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              className="toggle-password-btn"
+            >
+              {showConfirmPassword ? "Hide" : "Show"}
+            </button>
+          </div>
+          <br />
+
+          {error && <p className="error-message">{error}</p>}
+          <button type="submit" className="submit-btn">
+            Create Account
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
