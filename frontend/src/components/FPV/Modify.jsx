@@ -26,12 +26,15 @@ function Modify() {
     }
 
     try {
-      const res = await axios.post(`${apiUrl}/api/auth/modify-password`, {
-        type,
-        pin,
-        user_id,
-        identification,
-      });
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/auth/modify-password`,
+        {
+          type,
+          pin,
+          user_id,
+          identification,
+        }
+      );
       console.log(res.message);
 
       if (res.data.success) {

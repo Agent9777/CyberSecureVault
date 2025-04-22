@@ -18,10 +18,13 @@ function SignIn() {
     // Email pattern check for Gmail or .ac.in domain
 
     try {
-      const res = await axios.post(`${apiUrl}/api/auth/signin`, {
-        email,
-        password,
-      });
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/auth/signin`,
+        {
+          email,
+          password,
+        }
+      );
 
       if (res.data.success) {
         navigate("/vaults", { state: { user_id: res.data.user_id } }); // Redirect to the vaults page on successful sign-in

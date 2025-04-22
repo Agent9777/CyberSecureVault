@@ -16,9 +16,12 @@ function Show() {
   useEffect(() => {
     const fetchPasswords = async () => {
       try {
-        const res = await axios.post(`${apiUrl}/api/auth/get-passwords`, {
-          user_id,
-        });
+        const res = await axios.post(
+          `${import.meta.env.VITE_API_URL}/api/auth/get-passwords`,
+          {
+            user_id,
+          }
+        );
         if (res.data.success) {
           setPasswords(res.data.data);
           setLastModified(res.data.lastModified);

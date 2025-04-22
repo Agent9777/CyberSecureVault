@@ -19,14 +19,17 @@ function Edit() {
     const savings = income - expenditure - investment;
 
     try {
-      const res = await axios.post(`${apiUrl}/api/auth/save-monthly-finance`, {
-        user_id,
-        month,
-        income,
-        expenditure,
-        investment,
-        savings,
-      });
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/auth/save-monthly-finance`,
+        {
+          user_id,
+          month,
+          income,
+          expenditure,
+          investment,
+          savings,
+        }
+      );
 
       if (res.data.success) {
         setMessage("Finance details saved successfully.");

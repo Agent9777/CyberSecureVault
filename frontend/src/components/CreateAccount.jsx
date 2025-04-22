@@ -13,7 +13,6 @@ function CreateAccount() {
   const [showPassword, setShowPassword] = useState(false); // Toggle for password visibility
   const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Toggle for confirm password visibility
   const navigate = useNavigate();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -34,13 +33,10 @@ function CreateAccount() {
 
     try {
       // Sending POST request to register user
-      await axios.post(
-        `https://cyber-secure-vault-ko89.vercel.app/api/auth/register`,
-        {
-          email,
-          password: setPassword,
-        }
-      );
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`, {
+        email,
+        password: setPassword,
+      });
 
       console.log("Account created, navigating to sign in page...");
 

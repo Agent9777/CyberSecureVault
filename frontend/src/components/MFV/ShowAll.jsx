@@ -23,7 +23,7 @@ function ShowAll() {
     setLoading(true);
     try {
       const res = await axios.post(
-        `${apiUrl}/api/auth/get-all-monthly-finance`,
+        `${import.meta.env.VITE_API_URL}/api/auth/get-all-monthly-finance`,
         {
           user_id,
         }

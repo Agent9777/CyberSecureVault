@@ -23,10 +23,13 @@ function Show1() {
     setError("");
 
     try {
-      const res = await axios.post(`${apiUrl}/api/auth/get-monthly-finance`, {
-        user_id,
-        month,
-      });
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/auth/get-monthly-finance`,
+        {
+          user_id,
+          month,
+        }
+      );
       if (res.data.success && res.data.data) {
         console.log("success");
         console.log(res.data.data[0]);
