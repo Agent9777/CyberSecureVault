@@ -13,7 +13,8 @@ function CreateAccount() {
   const [showPassword, setShowPassword] = useState(false); // Toggle for password visibility
   const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Toggle for confirm password visibility
   const navigate = useNavigate();
-
+  console.log(import.meta.env.VITE_API_URL);
+  console.log(apiUrl);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
