@@ -21,26 +21,32 @@ import "./app.css";
 function App() {
   return (
     <>
-    <Header/>
-    <div className="main-containter">
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/create-account" element={<CreateAccount />} />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/financial-news" element={<FinancialNews />} />
-        <Route path="/threat-intelligence" element={<ThreatIntelligence />} />
-        <Route path="/malware-detection" element={<MalwareDetection />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/vaults" element={<VaultSelection />} />
-        <Route path="/financial-password-vault" element={<FinancialPasswordVault />} />
-        <Route path="/financial-password-vault/modify" element={<Modify />} />
-        <Route path="/financial-password-vault/show" element={<Show />} />
-        <Route path="/monthly-finance-vault" element={<MonthlyFinanceVault />} />
-        <Route path="/monthly-finance-vault/edit" element={<Edit />} />
-        <Route path="/monthly-finance-vault/show1" element={<Show1 />} />
-        <Route path="/monthly-finance-vault/showall" element={<ShowAll />} />
-      </Routes>
-    </div>
+      <Header />
+      <div className="main-containter">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/create-account" element={<CreateAccount />} />
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/financial-news" element={<FinancialNews />} />
+          <Route path="/threat-intelligence" element={<ThreatIntelligence />} />
+          <Route path="/malware-detection" element={<MalwareDetection />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/vaults" element={<VaultSelection />} />
+          <Route
+            path="/financial-password-vault"
+            element={<FinancialPasswordVault />}
+          />
+          <Route path="/financial-password-vault/modify" element={<Modify />} />
+          <Route path="/financial-password-vault/show" element={<Show />} />
+          <Route
+            path="/monthly-finance-vault"
+            element={<MonthlyFinanceVault />}
+          />
+          <Route path="/monthly-finance-vault/edit" element={<Edit />} />
+          <Route path="/monthly-finance-vault/show1" element={<Show1 />} />
+          <Route path="/monthly-finance-vault/showall" element={<ShowAll />} />
+        </Routes>
+      </div>
     </>
   );
 }

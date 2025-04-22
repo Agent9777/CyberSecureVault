@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
 
 /* Home Container with high-quality background */
 .home-container {
@@ -237,7 +239,6 @@ input[type="file"]::file-selector-button:hover {
 
 
 
-@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
 
 /* Apply Bruno Ace SC font and futuristic style */
 .button-container button {
@@ -321,7 +322,6 @@ input[type="file"]::file-selector-button:hover {
 
 
 
-@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
 
 /* Apply Bruno Ace SC font and futuristic style */
 .button-container button {
@@ -377,7 +377,6 @@ input[type="file"]::file-selector-button:hover {
 
 
 
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
 
 .glitch-header {
   font-family: 'Orbitron', sans-serif;
